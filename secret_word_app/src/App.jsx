@@ -24,7 +24,14 @@ const stages = [
 function App() {
   //Definindo o estado do GameStage
   const [gameStage, setGameStage] = useState(stages[0].name)
+
+  //Importando a WordsList
   const [words] = useState(wordsList);
+
+  //Criando a função para iniciar o jogo
+  const startGame = ()=>{
+    setGameStage(stages[1].name)
+  }
   
   
   
@@ -33,7 +40,7 @@ function App() {
     <>
       <div className="App">
          {/*Definindo as condições ternárias para a exibição das telas*/}
-         {gameStage === "start" &&  <StartScreen />}
+         {gameStage === "start" &&  <StartScreen startGame={startGame} />}
          {gameStage === "game" &&  <Game />}
          {gameStage === "end" &&  <GameOver />}
          
