@@ -29,6 +29,8 @@ function App() {
     <>
       <div className="App">
          {gameStage === "start" &&  <StartScreen />}
+         {gameStage === "start" &&  <StartScreen />}
+         {gameStage === "start" &&  <StartScreen />}
          
          
       </div>
