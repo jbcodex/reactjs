@@ -1,9 +1,12 @@
 import "./GameOver.css"
 
 
-const GameOver = () => {
+const GameOver = ({getStart}) => {
   return (
-    <div>GameOver</div>
+    <div>
+        <h1>Game Over</h1>
+        <button onClick={getStart}>Início</button>
+    </div>
     
   )
 }

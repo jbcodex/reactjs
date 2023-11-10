@@ -38,6 +38,10 @@ function App() {
     setGameStage(stages[2].name)
     console.log(gameStage)
   }
+
+  const getStart = ()=>{
+    setGameStage(stages[0].name)
+  } 
   
   
   
@@ -48,7 +52,7 @@ function App() {
          {/*Definindo as condições ternárias para a exibição das telas*/}
          {gameStage === "start" &&  <StartScreen startGame={startGame} />}
          {gameStage === "game" &&  <Game verifyLetter={verifyLetter}/>}
-         {gameStage === "end" &&  <GameOver />}
+         {gameStage === "end" &&  <GameOver getStart={getStart} />}
          
          
          
