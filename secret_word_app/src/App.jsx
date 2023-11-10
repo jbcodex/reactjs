@@ -32,6 +32,12 @@ function App() {
   const startGame = ()=>{
     setGameStage(stages[1].name)
   }
+
+  //Processando a letra inserida
+  const verifyLetter = ()=>{
+    setGameStage(stages[2].name)
+    console.log(gameStage)
+  }
   
   
   
@@ -41,7 +47,7 @@ function App() {
       <div className="App">
          {/*Definindo as condições ternárias para a exibição das telas*/}
          {gameStage === "start" &&  <StartScreen startGame={startGame} />}
-         {gameStage === "game" &&  <Game />}
+         {gameStage === "game" &&  <Game verifyLetter={verifyLetter}/>}
          {gameStage === "end" &&  <GameOver />}
          
          
