@@ -17,10 +17,10 @@ const stages = [
   { id:1, name:"start" },
   { id:2, name:"game" },
   { id:3, name:"end" }
-  
 ];
 
 function App() {
+  //Definindo o estado do GameStage
   const [gameStage, setGameStage] = useState(stages[0])
   
   
