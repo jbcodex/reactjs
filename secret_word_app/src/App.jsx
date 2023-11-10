@@ -10,6 +10,8 @@ import {wordsList} from "./data/words"
 
 //Components
 import StartScreen from './components/StartScreen'
+import Game from './components/Game';
+import GameOver from './components/GameOver';
 
 
 //Definindo os estágios do jogo
@@ -21,16 +23,20 @@ const stages = [
 
 function App() {
   //Definindo o estado do GameStage
-  const [gameStage, setGameStage] = useState(stages[0])
+  const [gameStage, setGameStage] = useState(stages[0].name)
+  const [words] = useState(wordsList);
+  
   
   
 
   return (
     <>
       <div className="App">
+         {/*Definindo as condições ternárias para a exibição das telas*/}
          {gameStage === "start" &&  <StartScreen />}
-         {gameStage === "start" &&  <StartScreen />}
-         {gameStage === "start" &&  <StartScreen />}
+         {gameStage === "game" &&  <Game />}
+         {gameStage === "end" &&  <GameOver />}
+         {gameStage === "end" &&  <GameOver />}
          
          
       </div>
