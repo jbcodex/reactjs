@@ -36,7 +36,7 @@ function App() {
          {gameStage === "start" &&  <StartScreen />}
          {gameStage === "game" &&  <Game />}
          {gameStage === "end" &&  <GameOver />}
-         {gameStage === "end" &&  <GameOver />}
+         
          
          
       </div>
