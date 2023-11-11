@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./StartScreen.css"
 
 const StartScreen = ({startGame}) => {

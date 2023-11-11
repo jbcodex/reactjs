@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 //CSS
 import './App.css'
@@ -25,11 +26,22 @@ function App() {
   //Definindo o estado do GameStage
   const [gameStage, setGameStage] = useState(stages[0].name)
 
+  const [pickedWord, setPickedWord] = useState();
+  const [pickedCategory, setPickCategory] = useState();
+  const [letters, setLetters] = useState()
+
   //Importando a WordsList
   const [words] = useState(wordsList);
 
+  const pickCategoryAndWord = ()=>{
+    const categories = Object.keys(words)
+    const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
+    console.log(category)
+  }
+
   //Criando a função para iniciar o jogo
   const startGame = ()=>{
+    pickCategoryAndWord()
     setGameStage(stages[1].name)
   }
 

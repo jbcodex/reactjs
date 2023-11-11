@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./Game.css"
 
 const Game = ({verifyLetter}) => {
