@@ -26,6 +26,8 @@ function App() {
   //Definindo o estado do GameStage
   const [gameStage, setGameStage] = useState(stages[0].name)
 
+
+//Definindo variáveis para a escolha das categorias e palavras
   const [pickedWord, setPickedWord] = useState();
   const [pickedCategory, setPickCategory] = useState();
   const [letters, setLetters] = useState()
