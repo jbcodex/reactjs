@@ -19,7 +19,7 @@ import GameOver from './components/GameOver';
 const stages = [
   { id:1, name:"start" },
   { id:2, name:"game" },
-  { id:3, name:"end" }
+  { id:3, name:"end" } 
 ];
 
 function App() {
