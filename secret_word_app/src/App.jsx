@@ -53,6 +53,7 @@ function App() {
     console.log(gameStage)
   }
 
+  //Iniciando novamente o jogo
   const getStart = ()=>{
     setGameStage(stages[0].name)
   } 
