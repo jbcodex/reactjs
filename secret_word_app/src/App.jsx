@@ -35,11 +35,19 @@ function App() {
   //Importando a WordsList
   const [words] = useState(wordsList);
 
+  //Escolhendo a catgoria das palavras
   const pickCategoryAndWord = ()=>{
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
+    const word = words[category][Math.floor(Math.random() * words[category].length)]
     console.log(category)
+    console.log(word)
+    
   }
+
+  //Escolhendo uma palavra de cada categoria
+  
+
 
   //Criando a função para iniciar o jogo
   const startGame = ()=>{
