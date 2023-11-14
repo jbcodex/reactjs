@@ -55,6 +55,7 @@ function App() {
     setPickCategory(category)
     setPickedWord(words)
     setLetters(letters)
+    //Definidas as categorias e letras
   }
 
  
