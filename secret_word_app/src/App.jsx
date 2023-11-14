@@ -41,15 +41,23 @@ function App() {
 
   //Escolhendo uma palavra de cada categoria
     const word = words[category][Math.floor(Math.random() * words[category].length)]
-    console.log(category)
-    console.log(word)
+    return {category, word}
   }
 
   //Criando a função para iniciar o jogo
   const startGame = ()=>{
-    pickWordAndCategory()
+    const {category, word} = pickWordAndCategory();
+    let wordLetters = word.split("")
+    wordLetters = wordLetters.map((l) => l.toLowerCase());
+    console.log(wordLetters)
+    console.log(category, word)
     setGameStage(stages[1].name)
+    setPickCategory(category)
+    setPickedWord(words)
+    setLetters(letters)
   }
+
+ 
 
   //Processando a letra inserida
   const verifyLetter = ()=>{
