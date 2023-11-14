@@ -31,11 +31,11 @@ function App() {
   const [pickedCategory, setPickCategory] = useState();
   const [letters, setLetters] = useState([])
 
-  //Criando a variável word com seu estado em uma list
+  //Criando a variável word com os dados da WordsList
   const [words] = useState(wordsList);
 
-  //Escolhendo a catgoria das palavras
-  const pickCategoryAndWord = ()=>{
+  //Escolhendo a catgoria e a palavra
+  const pickWordAndCategory = ()=>{
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
 
@@ -47,7 +47,7 @@ function App() {
 
   //Criando a função para iniciar o jogo
   const startGame = ()=>{
-    pickCategoryAndWord()
+    pickWordAndCategory()
     setGameStage(stages[1].name)
   }
 
@@ -68,7 +68,7 @@ function App() {
       <div className="App">
          {/*Definindo as condições ternárias para a exibição das telas*/}
          {gameStage === "start" &&  <StartScreen startGame={startGame} />}
-         {gameStage === "game" &&  <Game verifyLetter={verifyLetter}/>}
+         {gameStage === "game" &&  <Game verifyLetter={verifyLetter} />}
          {gameStage === "end" &&  <GameOver getStart={getStart} />}
       </div>
     </>
