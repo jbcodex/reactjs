@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-
 //CSS
 import './App.css'
 
@@ -30,24 +29,21 @@ function App() {
 //Definindo variáveis para a escolha das categorias e palavras
   const [pickedWord, setPickedWord] = useState();
   const [pickedCategory, setPickCategory] = useState();
-  const [letters, setLetters] = useState()
+  const [letters, setLetters] = useState([])
 
-  //Importando a WordsList
+  //Criando a variável word com seu estado em uma list
   const [words] = useState(wordsList);
 
   //Escolhendo a catgoria das palavras
   const pickCategoryAndWord = ()=>{
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
+
+  //Escolhendo uma palavra de cada categoria
     const word = words[category][Math.floor(Math.random() * words[category].length)]
     console.log(category)
     console.log(word)
-    
   }
-
-  //Escolhendo uma palavra de cada categoria
-  
-
 
   //Criando a função para iniciar o jogo
   const startGame = ()=>{
@@ -66,8 +62,6 @@ function App() {
     setGameStage(stages[0].name)
   } 
   
-  
-  
 
   return (
     <>
@@ -76,9 +70,6 @@ function App() {
          {gameStage === "start" &&  <StartScreen startGame={startGame} />}
          {gameStage === "game" &&  <Game verifyLetter={verifyLetter}/>}
          {gameStage === "end" &&  <GameOver getStart={getStart} />}
-         
-         
-         
       </div>
     </>
   )
