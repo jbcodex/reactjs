@@ -22,6 +22,11 @@ const Game = ({verifyLetter}) => {
         <button>Jogar</button>
       </form>
     </div>
+    <div className="wrongLettersContainer">
+      <p>Letras utilizadas</p>
+      <span>a, </span>
+      <span>b, </span>
+    </div>
    </div>
   )
 }
