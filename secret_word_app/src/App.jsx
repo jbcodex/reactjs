@@ -49,8 +49,6 @@ function App() {
     const {category, word} = pickWordAndCategory();
     let wordLetters = word.split("")
     wordLetters = wordLetters.map((l) => l.toLowerCase());
-    console.log(wordLetters)
-    console.log(category, word)
     setGameStage(stages[1].name)
     setPickCategory(category)
     setPickedWord(words)
