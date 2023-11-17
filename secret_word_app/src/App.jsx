@@ -24,6 +24,7 @@ const stages = [
 function App() {
   //Definindo o estado do GameStage
   const [gameStage, setGameStage] = useState(stages[0].name)
+  const [words] = useState(wordsList);
 
 
 //Definindo variáveis para a escolha das categorias e palavras
@@ -31,9 +32,11 @@ function App() {
   const [pickedCategory, setPickCategory] = useState();
   const [letters, setLetters] = useState([])
 
-  //Criando a variável word com os dados da WordsList
-  const [words] = useState(wordsList);
-
+  const [gessedLetters, setgessedLettes] = useState([]);
+  const [wrongLetters, setWrongLetterss] = useState([]);
+  const [gesses, setGesses] = useState(2);
+  const [score, setScore] = useState(0)
+  
   //Escolhendo a catgoria e a palavra
   const pickWordAndCategory = ()=>{
     const categories = Object.keys(words)
@@ -52,7 +55,8 @@ function App() {
     setGameStage(stages[1].name)
     setPickCategory(category)
     setPickedWord(words)
-    setLetters(letters)
+    setLetters(wordLetters)
+    console.log(wordLetters)
     //Definidas as categorias e letras
   }
 
@@ -75,7 +79,16 @@ function App() {
       <div className="App">
          {/*Definindo as condições ternárias para a exibição das telas*/}
          {gameStage === "start" &&  <StartScreen startGame={startGame} />}
-         {gameStage === "game" &&  <Game verifyLetter={verifyLetter} />}
+         {gameStage === "game" &&  <Game 
+                verifyLetter={verifyLetter} 
+                pickedWord={pickedWord} 
+                pickedCategory={pickedCategory} 
+                letters={letters}
+                gessedLetters={gessedLetters}
+                wrongLetters={wrongLetters}
+                gesses={gesses}
+                score={score}
+          />}
          {gameStage === "end" &&  <GameOver getStart={getStart} />}
       </div>
     </>

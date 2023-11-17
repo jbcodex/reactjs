@@ -1,19 +1,38 @@
 /* eslint-disable react/prop-types */
 import "./Game.css"
 
-const Game = ({verifyLetter}) => {
+const Game = ({
+      verifyLetter,
+      pickedWord,
+      pickedCategory,
+      letters,
+      gessedLetters,
+      wrongLetters,
+      gesses,
+      score
+
+    }) => {
   return (
    <div className="game">
     <p className="points">
-      <span>Pontuação: 000</span>
+      <span>{score}</span>
     </p>
     <h1>Adivinhe a palavra</h1>
     <h3 className="tip">
-      Dica da Palavra: <span>Dica...</span>
+      Dica da Palavra: <span>{pickedCategory}</span>
     </h3>
+    <p>{gesses > 1 ? "Você tem" : ""} {gesses > 1 ? gesses : ""} {gesses > 1 ? "tentativas" : "Última tentativa"}.</p>
     <div className="wordContainer">
-      <span className="letter">A</span>
-      <span className="blankSquare"></span>
+     
+      {letters.map((letter, i)=>(
+        gessedLetters.includes(letter) ? (
+            <span key={i} className="letter">{letter}</span>
+        ) : (
+            <span key={i} className="blankSquare"></span>
+
+        )
+      ))}
+     
     </div>
     <div className="letterContainer">
       <p>Adivinhe a letra:</p>
@@ -24,8 +43,9 @@ const Game = ({verifyLetter}) => {
     </div>
     <div className="wrongLettersContainer">
       <p>Letras utilizadas</p>
-      <span>a, </span>
-      <span>b, </span>
+     {wrongLetters.map((letter, i)=>(
+        <span key={i}>{letter}, </span>
+     ))}
     </div>
    </div>
   )
