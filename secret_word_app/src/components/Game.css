@@ -30,6 +30,17 @@
 
 }
 
+.wrongLettersContainer span{
+    text-transform: uppercase;
+    font-size: 3em;
+    color:red;
+    font-weight: bold;
+    border: 1px solid red;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+}
+
 .letterContanier p{
     margin-bottom: 1.2em;
 }

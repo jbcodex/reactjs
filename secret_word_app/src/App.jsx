@@ -32,9 +32,9 @@ function App() {
   const [pickedCategory, setPickCategory] = useState();
   const [letters, setLetters] = useState([])
 
-  const [gessedLetters, setgessedLettes] = useState([]);
-  const [wrongLetters, setWrongLetterss] = useState([]);
-  const [gesses, setGesses] = useState(2);
+  const [gessedLetters, setGessedLetters] = useState([]);
+  const [wrongLetters, setWrongLetters] = useState([]);
+  const [gesses, setGesses] = useState(3);
   const [score, setScore] = useState(0)
   
   //Escolhendo a catgoria e a palavra
@@ -56,21 +56,55 @@ function App() {
     setPickCategory(category)
     setPickedWord(words)
     setLetters(wordLetters)
-    console.log(wordLetters)
+ 
     //Definidas as categorias e letras
   }
 
  
 
   //Processando a letra inserida
-  const verifyLetter = ()=>{
-    setGameStage(stages[2].name)
-    console.log(gameStage)
+  const verifyLetter = (letter)=>{
+    const normalizedLetters = letter.toLowerCase();
+    if (
+      gessedLetters.includes(normalizedLetters) ||
+      wrongLetters.includes(normalizedLetters)
+    ){
+      return
+    }
+    if(letters.includes(normalizedLetters)){
+      setGessedLetters((actualGessedLetters)=>[
+        ...actualGessedLetters,
+        normalizedLetters
+      ]);
+    }else{
+      setWrongLetters((actualGessedLetters)=>[
+        ...actualGessedLetters,
+        normalizedLetters,
+       
+      ])
+
+      setGesses((actualGessed) => actualGessed -1)
+    }
+  
   }
+
+  const clearLettersStates = ()=> {
+    setGessedLetters([])
+    setWrongLetters([])
+  }
+  useEffect(()=>{
+    if(gesses <= 0){
+      clearLettersStates(); 
+      setGameStage(stages[2].name)
+    }
+  }, [gesses])
 
   //Iniciando novamente o jogo
   const getStart = ()=>{
+    setScore(0)
+    setGesses(3)
     setGameStage(stages[0].name)
+    
   } 
   
 
