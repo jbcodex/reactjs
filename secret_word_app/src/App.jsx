@@ -9,10 +9,9 @@ import { useCallback, useEffect, useState } from 'react'
 import {wordsList} from "./data/words"
 
 //Components
-import StartScreen from './components/StartScreen'
+import StartScreen from './components/StartScreen';
 import Game from './components/Game';
 import GameOver from './components/GameOver';
-
 
 //Definindo os estágios do jogo
 const stages = [

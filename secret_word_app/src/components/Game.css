@@ -63,3 +63,9 @@
     text-transform: uppercase;
 
 }
+
+.points {
+    color:#3ef02b;
+    font-size: 22px;
+    font-weight: bold;
+}
