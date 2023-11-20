@@ -37,17 +37,18 @@ function App() {
   const [score, setScore] = useState(0)
   
   //Escolhendo a catgoria e a palavra
-  const pickWordAndCategory = ()=>{
+  const pickWordAndCategory =  useCallback(()=>{
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
 
   //Escolhendo uma palavra de cada categoria
     const word = words[category][Math.floor(Math.random() * words[category].length)]
     return {category, word}
-  }
+  }, [words]);
 
   //Criando a função para iniciar o jogo
-  const startGame = ()=>{
+  const startGame = useCallback(()=>{
+    clearLettersStates(); 
     const {category, word} = pickWordAndCategory();
     let wordLetters = word.split("")
     wordLetters = wordLetters.map((l) => l.toLowerCase());
@@ -57,9 +58,7 @@ function App() {
     setLetters(wordLetters)
  
     //Definidas as categorias e letras
-  }
-
- 
+  }, [pickWordAndCategory]);
 
   //Processando a letra inserida
   const verifyLetter = (letter)=>{
@@ -91,12 +90,30 @@ function App() {
     setGessedLetters([])
     setWrongLetters([])
   }
+
+  //Checando as tentativas de jogo
   useEffect(()=>{
     if(gesses <= 0){
+      //resetando todos os estados
       clearLettersStates(); 
       setGameStage(stages[2].name)
     }
-  }, [gesses])
+  }, [gesses]);
+
+
+  //Checando Condição de vitória
+  useEffect(()=>{
+    const uniqueLetters = [...new Set(letters)];
+    //Condição de vitória
+    console.log(uniqueLetters)
+    if(gessedLetters.length === uniqueLetters.length) {
+      //add score
+      setScore((actualScore) => actualScore += 100)
+      //Reiniciando jogo
+      startGame()
+
+    }
+  }, [gessedLetters, letters, startGame])
 
   //Iniciando novamente o jogo
   const getStart = ()=>{
@@ -106,7 +123,6 @@ function App() {
     
   } 
   
-
   return (
     <>
       <div className="App">
@@ -122,7 +138,7 @@ function App() {
                 gesses={gesses}
                 score={score}
           />}
-         {gameStage === "end" &&  <GameOver getStart={getStart} />}
+         {gameStage === "end" &&  <GameOver getStart={getStart} score={score}/>}
       </div>
     </>
   )
