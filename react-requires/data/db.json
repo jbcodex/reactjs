@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Camisa de manga",
+      "price": 24.99
+    },
+    {
+      "id": 2,
+      "name": "Camisa Regata",
+      "price": 39.99
+    },
+    {
+      "id": 3,
+      "name": "Tênis de corrida",
+      "price": 129.99
+    },
+    {
+      "name": "Vestido Preto",
+      "price": "34.99",
+      "id": 4
+    },
+    {
+      "name": "shot de praia",
+      "price": "22.99",
+      "id": 5
+    },
+    {
+      "name": "camisa de malha",
+      "price": "56.90",
+      "id": 6
+    },
+    {
+      "name": "camisa de manga",
+      "price": "22.9",
+      "id": 7
+    },
+    {
+      "name": "camisa de manga",
+      "price": "22.9",
+      "id": 11
+    },
+    {
+      "name": "camisa de malha verde",
+      "price": "23",
+      "id": 12
+    },
+    {
+      "name": "teste",
+      "price": "22",
+      "id": 13
+    }
+  ]
+}

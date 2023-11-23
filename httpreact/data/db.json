@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "name": "Celular",
+      "price": "234.99",
+      "id": 1
+    },
+    {
+      "name": "camisa",
+      "price": "34.99",
+      "id": 2
+    },
+    {
+      "name": "Cadeira de fibra",
+      "price": "245.34",
+      "id": 3
+    },
+    {
+      "name": "Lençol Solteiro",
+      "price": "24.99",
+      "id": 4
+    },
+    {
+      "name": "Camisa Polo",
+      "price": "43.99",
+      "id": 5
+    },
+    {
+      "name": "camisa algodão",
+      "price": "24.99",
+      "id": 6
+    },
+    {
+      "name": "Blusa de Manga",
+      "price": "23.99",
+      "id": 7
+    }
+  ]
+}
