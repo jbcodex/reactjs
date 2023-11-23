@@ -33,7 +33,6 @@ export const useFetch = (url) =>{
             const res = await fetch(...fetchOptions)
             const json = await res.json()
             setCallFetch(json)
-            
         }
        }
        httpRequest()
