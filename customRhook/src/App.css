@@ -16,7 +16,7 @@
 
  form{
     width:300px;
-    border: 1px solid #ccc;
+ 
     padding: 10px;
     margin:0 auto
  }
@@ -39,5 +39,15 @@
 label{
   display: block;
   
+}
+
+.btn{
+  background-color: #069;
+  color: #fff;
+  text-transform: uppercase;
+  height: 50px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
 }
 

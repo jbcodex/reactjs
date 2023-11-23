@@ -1,16 +1,8 @@
 {
   "users": [
-    {
-      "id": 1,
-      "name": "Jarbas Bento",
-      "age": 46,
-      "ocupation": "Programador"
-    },
-    {
-      "name": "Euclides Lione",
-      "age": "34",
-      "ocupation": "Designer",
-      "id": 3
-    }
-  ]
+   
+  ],
+  "admins" : {
+    
+  }
 }

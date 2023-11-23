@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 export const useFetch = (url) =>{
     const [ data, setData] = useState(null)
-    const [ config, setConfig ] = useState(null)
-    const [ method, setMethod ] = useState(null)
+    const [ config, setConfig ] = useState(null) //Configurações gerais de Método e Headers
+    const [ method, setMethod ] = useState(null) //
     const [ callFetch, setCallFetch ] = useState(false)
 
     const httpConfig = (data, method)=>{
@@ -15,8 +15,10 @@ export const useFetch = (url) =>{
                 body:JSON.stringify(data)
             });
             setMethod(method)
+            console.log("1º - HttpConfig")
         }
     }
+
     useEffect(()=>{
         const fetchData = async ()=>{
             const response = await fetch(url)
@@ -24,6 +26,7 @@ export const useFetch = (url) =>{
             setData(jsonData)
         }
         fetchData()
+        console.log("2º - FetchData")
     }, [url, callFetch])
 
     useEffect(()=>{
@@ -36,6 +39,7 @@ export const useFetch = (url) =>{
         }
        }
        httpRequest()
-    }, [config, url, method])
+       console.log("3º - Http Request")
+    }, [config, method, url])
     return { data, httpConfig }
 }

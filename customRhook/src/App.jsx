@@ -4,23 +4,24 @@ import { useFetch } from "../hooks/useFetch";
 
 function App() {
   const url = "http://localhost:3000/users";
-  const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [ocupation, setOcupation] = useState("");
 
   
   const { data: usr, httpConfig } = useFetch(url);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = {
       name,
       age,
-      ocupation,
+      ocupation
     };
-    
-    httpConfig(users, "POST");
-    setUsers(user)
+    httpConfig(user, "POST");
+    setName("")
+    setAge("")
+    setOcupation("")
   };
 
   return (
@@ -39,17 +40,17 @@ function App() {
         <form onSubmit={handleSubmit} autoComplete="off">
           <label>
             <span>Nome</span>
-            <input type="text" name="name" onChange={(e)=>setName(e.target.value)} />
+            <input type="text" name="name" value={name} onChange={(e)=>setName(e.target.value)} />
           </label>
           <label>
             <span>Idade:</span>
-            <input type="number" name="age" onChange={(e)=>setAge(e.target.value)}  />
+            <input type="number" name="age" value={age} onChange={(e)=>setAge(e.target.value)}  />
           </label>
           <label>
             <span>Profissão:</span>
-            <input type="text" name="ocupation" onChange={(e)=>setOcupation(e.target.value)}  />
+            <input type="text" name="ocupation" value={ocupation} onChange={(e)=>setOcupation(e.target.value)}  />
           </label>
-          <input type="submit" value="Cadastrar" />
+          <input className="btn" type="submit" value="Cadastrar Usuário" />
         </form>
       </div>
     </>
