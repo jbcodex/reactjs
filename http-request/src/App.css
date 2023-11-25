@@ -1,0 +1,61 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+form{
+  width: 190px;
+  margin:0 auto;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ececec;
+}
+
+.userList{
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  border: 1px solid #ececec;
+  width: 550px;
+  padding: 10px;
+}
+
+label{
+  display: block;
+  text-align: left;
+}
+
+span{
+  display: block;
+
+}
+
+input{
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+  border:none;
+  outline: none;
+  background-color: #f7f7f7;
+}
+
+.btn{
+  background-color: red;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+p{
+  width: 145px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: left;
+  margin:3px;
+}

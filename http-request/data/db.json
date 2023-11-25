@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Jarbas Bento",
+      "ocupation": "Programer"
+    },
+    {
+      "name": "Euclides Lione",
+      "ocupation": "Programador",
+      "id": 2
+    },
+    {
+      "name": "Renata Melo",
+      "ocupation": "Desenhista",
+      "id": 3
+    },
+    {
+      "name": "Jamaica",
+      "ocupation": "Cantora",
+      "id": 4
+    },
+    {
+      "name": "teste",
+      "ocupation": "teste",
+      "id": 5
+    },
+    {
+      "name": "Helena",
+      "ocupation": "guitarrista",
+      "id": 6
+    },
+    {
+      "name": "Jamaica",
+      "ocupation": "ladrao",
+      "id": 7
+    },
+    {
+      "name": "Jamaica",
+      "ocupation": "ladrao",
+      "id": 8
+    },
+    {
+      "name": "Calasaes",
+      "ocupation": "peixeiro",
+      "id": 9
+    },
+    {
+      "name": "Érika Ladslen",
+      "ocupation": "Designer",
+      "id": 10
+    },
+    {
+      "name": "Matheus Fraga",
+      "ocupation": "Motorista",
+      "id": 11
+    }
+  ],
+  "admlist": [
+    {
+      "id": 1,
+      "name": "Jarbas Bento",
+      "ocupation": "Programer"
+    }
+  ]
+}
