@@ -1,0 +1,19 @@
+.boxProduct{
+   display: flex;
+   justify-content: center;
+}
+
+.prod{
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 30%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.prod p{
+    margin:10px  auto;
+    text-align: center;
+    width: 70%;
+}
