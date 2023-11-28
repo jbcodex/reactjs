@@ -1,25 +1,32 @@
 {
-    "products" : [
-        {
-            "id" : 1,
-            "name" : "Mouse sem fio",
-            "price" : 99.99,
-            "description" : "Dispositivo com 300 DPI e baterias recarregáveis que duram em média 3 dias de usabilidade contínua",
-            "information" : "Produto vem lacrado e pode ser entregue com frete grátis"
-        },
-        {
-            "id" : 2,
-            "name" : "Carregador de bateria",
-            "price" : 129.99,
-            "description" : "Capacidade para carregamento de 5 pilhas, tempo de carregamento 4hs 100%, podendo diminuir com a função TURBO CHARGE inclusa no aparelho",
-            "information" : "Este produto vem com uma pilha grátis"
-        },
-        {
-            "id" : 3,
-            "name" : "Gabinete AZUS",
-            "price" : 399.99,
-            "description" : "Compartimento para fonte real e dispositivos gamers. Slot para 5 coolers de refrigeração e 8 baias para ssd ou hd",
-            "information" : "Produto vem com uma fonte genérica podendo ser substituido por qualquer outro item"
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "Mouse sem fio",
+      "price": 99.99,
+      "description": "Dispositivo com 300 DPI e baterias recarregáveis que duram em média 3 dias de usabilidade contínua",
+      "information": "Produto vem lacrado e pode ser entregue com frete grátis"
+    },
+    {
+      "id": 2,
+      "name": "Carregador de bateria",
+      "price": 129.99,
+      "description": "Capacidade para carregamento de 5 pilhas, tempo de carregamento 4hs 100%, podendo diminuir com a função TURBO CHARGE inclusa no aparelho",
+      "information": "Este produto vem com uma pilha grátis"
+    },
+    {
+      "id": 3,
+      "name": "Gabinete AZUS",
+      "price": 399.99,
+      "description": "Compartimento para fonte real e dispositivos gamers. Slot para 5 coolers de refrigeração e 8 baias para ssd ou hd",
+      "information": "Produto vem com uma fonte genérica podendo ser substituido por qualquer outro item"
+    },
+    {
+      "name": "teste",
+      "price": "teste",
+      "description": "teste",
+      "information": "teste",
+      "id": 4
+    }
+  ]
 }

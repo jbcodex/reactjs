@@ -1,10 +1,13 @@
 import { useState } from "react"
+import { useFetch } from "../../hooks/useFetch"
 import "./Panel.css"
 const Panel = () => {
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")
   const [description, setDescription] = useState("")
-  const [info, setInfo] = useState("")
+  const [information, setInformation] = useState("")
+  const url = "http://localhost:3000/products"
+  const { httpConfig } = useFetch(url)
 
   const handleSubmit = (e)=>{
     e.preventDefault()
@@ -12,8 +15,9 @@ const Panel = () => {
       name,
       price,
       description,
-      info
+      information
     }
+    httpConfig(product, "POST")
   }
 
   
@@ -34,7 +38,7 @@ const Panel = () => {
         </label>
         <label>
           <span>Info adicional</span>
-          <input type="text" name="info" value={info} onChange={(e)=>setInfo(e.target.value)} />
+          <input type="text" name="information" value={information} onChange={(e)=>setInformation(e.target.value)} />
         </label>
         <input className="btn" type="submit" value="Cadastrar" />
       </form>
