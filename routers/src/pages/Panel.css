@@ -1,0 +1,30 @@
+form{
+    width: 300px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+}
+label, span{
+    display: block;
+}
+input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: none;
+    background-color: rgb(234, 234, 234);
+    outline: none;
+    margin-bottom: 5px;
+}
+
+.btn{
+    background-color: #069;
+    color: #fff;
+    border:none;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
