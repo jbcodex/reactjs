@@ -22,11 +22,25 @@
       "information": "Produto vem com uma fonte genérica podendo ser substituido por qualquer outro item"
     },
     {
-      "name": "teste",
-      "price": "teste",
-      "description": "teste",
-      "information": "teste", 
+      "name": "Macbook PRO M1",
+      "price": "7.999",
+      "description": "Cinza espacial, tela de 13 polegadas, 8gm RAM e 256GB de SSD",
+      "information": "vem com capa protetora e limpador de película",
       "id": 4
+    },
+    {
+      "name": "Macbook PRO M1",
+      "price": "7.999",
+      "description": "Cinza espacial, tela de 13 polegadas, 8gm RAM e 256GB de SSD",
+      "information": "vem com capa protetora e limpador de película",
+      "id": 5
+    },
+    {
+      "name": "Teclado sem fio",
+      "price": "129.99",
+      "description": "Função handle Ligth que se ativa ao ficar no escuro",
+      "information": "frete grátis",
+      "id": 6
     }
   ]
 }

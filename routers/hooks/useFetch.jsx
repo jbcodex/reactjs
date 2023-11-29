@@ -9,7 +9,6 @@ export const useFetch = (url) => {
 
   const httpConfig = (data, method) =>{
     if(method === "POST"){
-      console.log(method)
       setConfig({
         method,
         headers:{"Content-Type" : "application/json"},

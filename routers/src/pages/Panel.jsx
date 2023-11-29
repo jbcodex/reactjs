@@ -11,18 +11,23 @@ const Panel = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-    const product ={
+    const product = {
       name,
       price,
       description,
       information
     }
+
     httpConfig(product, "POST")
+    setName("")
+    setPrice("")
+    setDescription("")
+    setInformation("")
   }
 
   
   return (
-    <div>
+    <div className="divForm">
       <form onSubmit={handleSubmit} autoComplete="off">
         <label>
           <span>Nome Produto</span>

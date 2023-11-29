@@ -1,14 +1,14 @@
-form{
+.divForm form{
     width: 300px;
     border: 1px solid #ccc;
-    margin: 0 auto;
+    margin: 15px auto;
     text-align: left;
     padding: 20px;
 }
 label, span{
     display: block;
 }
-input{
+.divForm input{
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -19,7 +19,7 @@ input{
     margin-bottom: 5px;
 }
 
-.btn{
+.divForm .btn{
     background-color: #069;
     color: #fff;
     border:none;
