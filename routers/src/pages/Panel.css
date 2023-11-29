@@ -28,3 +28,20 @@ label, span{
     margin-top: 10px;
     cursor: pointer;
 }
+
+.form{
+    margin-top:10px;
+}
+
+.form input{
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border:none;
+    background-color: #e7e7e7;
+}
+
+.form .btn{
+    background-color: rgb(250, 152, 4);
+    color:#fff;
+}
