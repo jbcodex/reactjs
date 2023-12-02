@@ -17,7 +17,7 @@ const Home = () => {
   }
   return (
     <div>
-      <form onSubmit={handleConfig}>
+      <form onSubmit={handleConfig}> 
         <label>
           <span>Nome</span>
           <input type="text" name="name" value={name} onChange={(e)=>setName(e.target.value)}/>
