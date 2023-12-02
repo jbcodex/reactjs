@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Jarbas",
+      "password": "7pla2yjae8"
+    },
+    {
+      "name": "Matheus",
+      "password": "c950bee4f0",
+      "id": 2
+    },
+    {
+      "name": "react",
+      "password": "native",
+      "id": 3
+    },
+    {
+      "name": "labirinto",
+      "password": "cromado",
+      "id": 4
+    },
+    {
+      "name": "Euclides",
+      "password": "Gattes@2918",
+      "id": 5
+    },
+    {
+      "name": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "name": "",
+      "password": "",
+      "id": 7
+    },
+    {
+      "name": "Jarboking",
+      "password": "3edssj89",
+      "id": 8
+    }
+  ]
+}
