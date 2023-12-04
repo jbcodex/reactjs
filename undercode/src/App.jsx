@@ -7,7 +7,12 @@ import About from "./pages/About/About";
 //Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
+
+//Styles
 import "./App.css";
+
 
 function App() {
   return (
@@ -18,6 +23,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
         <Footer />
