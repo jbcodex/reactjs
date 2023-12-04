@@ -1,25 +1,43 @@
 .navbar{
     display: flex;
-    background-color: rgb(43, 43, 43);
-    border-bottom: 3px solid rgb(252, 143, 0);
+    background-color: rgb(18, 18, 18);
     justify-content: space-between;
     align-items: center;
     padding:  1em;
+   
+}
+
+
+
+.nav_links a{
+    
+    margin: 0 10px;
+    text-decoration: none;
     color: #fff;
 }
 
-.navbar a{
-    color: #fff;
-    text-decoration: none;
-    margin: 0 20px;
-}
+
 
 .navbar ul{
     display: flex;
     list-style: none;
+    
 }
 
 .brand span{
     font-weight: 900;
     text-transform: uppercase;
+    color: #ff9900;
+}
+
+.brand{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.active{
+  
+ 
+    
 }

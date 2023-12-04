@@ -1,9 +1,28 @@
-:root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-   
-  
-  
-   
-  
+body{
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F6FCFF;
+
+
  
+  }
+
+  input::placeholder,
+  textarea::placeholder{
+    font-family: "Montserrat", sans-serif;
+  }
+
+  input:focus,
+  textarea:focus{
+    outline: none;
+  }
+
+  a, nav button{
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    color:black;
+    transition: .4s;
+    font-size: 1em;
+    cursor: pointer;
+
   }
