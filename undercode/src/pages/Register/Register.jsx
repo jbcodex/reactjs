@@ -10,13 +10,24 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
+    setError("")
+    const user = {
       displayname,
       email,
-      password,
-      confirmPassword
+      password
     };
-    console.log(data)
+
+   
+
+    if(password != confirmPassword){
+        setError("As senhas não conferem!")
+        return
+    }
+    setDisplayname("")
+    setEmail("")
+    setPassword("")
+    setConfirmPassword("")
+    
   };
 
   return (
@@ -41,13 +52,13 @@ const Register = () => {
             type="email"
             name="email"
             required
-            placeholder="E-mail"
+            placeholder="Seu melhor e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
         <label>
-          <span>Password:</span>
+          <span>Senha:</span>
           <input
             type="password"
             name="password"
@@ -58,7 +69,7 @@ const Register = () => {
           />
         </label>
         <label>
-          <span>Confirm Password:</span>
+          <span>Confirme a senha:</span>
           <input
             type="password"
             name="confirmPassword"
@@ -69,6 +80,7 @@ const Register = () => {
           />
         </label>
         <button className="btn">Cadastrar</button>
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );

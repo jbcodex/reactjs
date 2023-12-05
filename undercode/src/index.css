@@ -54,12 +54,14 @@ body{
 
   input, textarea{
     padding: 10px;
-    border-radius: 5px;
-    border:1px solid #ccc;
+    border: none;
+    border-bottom:1px solid #ccc;
     margin-bottom: 10px;
     font-family: "Montserrat", sans-serif;
     box-sizing: border-box;
     background-color: transparent;
+    font-size: 17px;
+    
   }
 
   .btn{
@@ -73,6 +75,7 @@ body{
     border: none;
     padding: 10px 15px;
     font-size: 1em;
+    margin: 0 auto;
   }
 
   .btn.btn-dark{
