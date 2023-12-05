@@ -44,10 +44,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/posts/create" element={<CreatePost />} />
+            <Route path="/register" element={!user ? <Register /> : <Home />} />
+            <Route path="/login" element={ !user ? <Login /> : <Home />} />
+            <Route path="/dashboard" element={!user ? <Login /> : <Dashboard />} />
+            <Route path="/posts/create" element={!user ? <Login /> : <CreatePost />} />
           </Routes>
         </div>
         <Footer />
