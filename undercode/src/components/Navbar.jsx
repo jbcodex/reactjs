@@ -20,7 +20,7 @@ const Navbar = () => {
           <NavLink to="/register" className={({isActive}) =>(isActive ? styles.active : "")} ><FaUserPlus style={{ color: "orange", fontSize: "1em", marginBottom: "-2px" }} /> Cadastre-se</NavLink>
         </li>
         <li>
-          <NavLink to="/login" className={({isActive}) =>(isActive ? styles.active : "")} ><FaUser style={{ color: "orange", fontSize: ".9em", marginBottom: "-2px"  }} /> Entrar</NavLink>
+          <NavLink to="/login" className={({isActive}) =>(isActive ? styles.active : "")} ><FaSignInAlt style={{ color: "orange", fontSize: ".9em", marginBottom: "-2px"  }} /> Login</NavLink>
         </li>
       
       </ul>

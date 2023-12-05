@@ -12,12 +12,14 @@ import Login from "./pages/Login/Login";
 
 //Styles
 import "./App.css";
+import { AuthContextProvider } from "./context/AuthContext";
 
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+     <AuthContextProvider>
+     <BrowserRouter>
         <Navbar />
         <div className="container">
           <Routes>
@@ -29,6 +31,7 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
+     </AuthContextProvider>
     </>
   );
 }

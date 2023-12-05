@@ -12,7 +12,9 @@ import { useState, useEffect } from "react";
 export const useAuthentication = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
-  const [sucess, setSucess] = useState(null)
+  const [success, setSuccess] = useState(null);
+
+  
 
   //cleanup
   //deal with memory leak
@@ -29,6 +31,8 @@ export const useAuthentication = () => {
     checkIfIsCancelled();
     setLoading(true);
     setError(null);
+  
+
     try {
       const { user } = await createUserWithEmailAndPassword(
         auth,
@@ -40,19 +44,24 @@ export const useAuthentication = () => {
         displayName: data.displayName,
       });
 
+     
+
       setLoading(false);
-      setSucess(true)
-      setTimeout(()=>{
-        setSucess(false)
-      }, 3000)
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 3000);
+
+     
       return user;
-      
+
     } catch (error) {
       console.log(error.message);
       console.log(typeof error.message);
       let systemErrorMessage;
       if (error.message.includes("Password")) {
-        systemErrorMessage = "As senhas precisam conter pelo menos 6 caracteres";
+        systemErrorMessage =
+          "As senhas precisam conter pelo menos 6 caracteres";
       } else if (error.message.includes("email-already")) {
         systemErrorMessage = "E-mail já cadastrado";
       } else {
@@ -61,7 +70,6 @@ export const useAuthentication = () => {
 
       setLoading(false);
       setError(systemErrorMessage);
-      
     }
   };
 
@@ -76,6 +84,7 @@ export const useAuthentication = () => {
     createUser,
     error,
     loading,
-    sucess
+    success,
+   
   };
 };

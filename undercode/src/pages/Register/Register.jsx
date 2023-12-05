@@ -8,8 +8,14 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  
 
-  const { createUser, error: authError, loading, sucess } = useAuthentication();
+  const {
+    createUser,
+    error: authError,
+    loading,
+    success,
+  } = useAuthentication();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,13 +32,8 @@ const Register = () => {
     }
 
     const response = await createUser(user);
+   
 
-    // if (response.ok) {
-    //   setDisplayname("");
-    //   setEmail("");
-    //   setPassword("");
-    //   setConfirmPassword("");
-    // }
   };
 
   useEffect(() => {
@@ -98,7 +99,8 @@ const Register = () => {
         )}
 
         {error && <p className="error">{error}</p>}
-        {sucess && <p className="sucess">Cadastro realizado com sucesso</p>}
+        {success && <p className="sucess">Cadastro realizado com sucesso</p>}
+      
       </form>
     </div>
   );
