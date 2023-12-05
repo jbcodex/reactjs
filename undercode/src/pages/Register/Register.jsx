@@ -1,3 +1,4 @@
+import { useAuthentication } from "../../hooks/userAuthentication";
 import styles from "./Register.module.css";
 import { useState, useEffect } from "react";
 
@@ -8,33 +9,43 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const { createUser, error: authError, loading, sucess } = useAuthentication();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("")
+    setError("");
     const user = {
       displayname,
       email,
-      password
+      password,
     };
 
-   
-
-    if(password != confirmPassword){
-        setError("As senhas não conferem!")
-        return
+    if (password != confirmPassword) {
+      setError("As senhas não conferem!");
+      return;
     }
-    setDisplayname("")
-    setEmail("")
-    setPassword("")
-    setConfirmPassword("")
-    
+
+    const response = await createUser(user);
+
+    // if (response.ok) {
+    //   setDisplayname("");
+    //   setEmail("");
+    //   setPassword("");
+    //   setConfirmPassword("");
+    // }
   };
+
+  useEffect(() => {
+    if (authError) {
+      setError(authError);
+    }
+  }, [authError]);
 
   return (
     <div className={styles.formRegister}>
       <h1>Cadastre-se para postar</h1>
       <p>Crie uma conta e compartilhe seus conhecimentos</p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off">
         <label>
           <span>Nome:</span>
           <input
@@ -79,8 +90,15 @@ const Register = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </label>
-        <button className="btn">Cadastrar</button>
+        {!loading && <button className="btn">Cadastrar</button>}
+        {loading && (
+          <button className="btn" disabled>
+            Aguarde...
+          </button>
+        )}
+
         {error && <p className="error">{error}</p>}
+        {sucess && <p className="sucess">Cadastro realizado com sucesso</p>}
       </form>
     </div>
   );

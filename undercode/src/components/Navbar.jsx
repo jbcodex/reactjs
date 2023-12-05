@@ -12,13 +12,13 @@ const Navbar = () => {
           <NavLink to="/" >Home</NavLink>
         </li>
         <li>
-          <NavLink to="/register" >Cadastre-se</NavLink>
+          <NavLink to="/register" className={({isActive}) =>(isActive ? styles.active : "")} >Cadastre-se</NavLink>
         </li>
         <li>
-          <NavLink to="/login">Entrar</NavLink>
+          <NavLink to="/login" className={({isActive}) =>(isActive ? styles.active : "")}>Entrar</NavLink>
         </li>
         <li>
-          <NavLink to="/about">Sobre</NavLink>
+          <NavLink to="/about" className={({isActive}) =>(isActive ? styles.active : "")}>Sobre</NavLink>
         </li>
       </ul>
     </nav>
