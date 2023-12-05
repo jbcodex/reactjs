@@ -17,6 +17,8 @@ import Login from "./pages/Login/Login";
 //Styles
 import "./App.css";
 import { AuthContextProvider } from "./context/AuthContext";
+import Dashboard from "./pages/dashboard/Dashboard";
+import CreatePost from "./pages/CreatePost/CreatePost";
 
 
 function App() {
@@ -44,6 +46,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/posts/create" element={<CreatePost />} />
           </Routes>
         </div>
         <Footer />
