@@ -1,0 +1,26 @@
+.about{
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 2em auto;
+
+}
+
+.abount p {
+    color:#aaa;
+    margin-bottom: 2em;
+    text-align: left;
+    
+}
+
+.about a{
+    display:block;
+    margin-top: 15px;
+    padding: 10px 15px;
+}
+
+.about b{
+    color:orange
+}
