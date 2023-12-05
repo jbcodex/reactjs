@@ -1,4 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+
+import { useState, useEffect} from "react";
+import { useAuthentication } from "./hooks/userAuthentication";
 
 //Pages
 import Home from "./pages/Home/Home";
@@ -16,9 +20,22 @@ import { AuthContextProvider } from "./context/AuthContext";
 
 
 function App() {
+  const [user, setUser] = useState(undefined);
+  const {auth} = useAuthentication()
+  const loadingUser = user === undefined;
+
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      setUser(user)
+    })
+  }, [auth])
+
+  if(loadingUser){
+    return <p>Carregando...</p>;
+  }
   return (
     <>
-     <AuthContextProvider>
+     <AuthContextProvider value={{user}}>
      <BrowserRouter>
         <Navbar />
         <div className="container">
