@@ -78,6 +78,24 @@ export const useAuthentication = () => {
     signOut(auth)
   }
 
+  const login = async(data)=>{
+    checkIfIsCancelled()
+    setLoading(true)
+    setError(false)
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password)
+    } catch (error) {
+      let systemErrorMessage
+      if(error.message.includes("auth/invalid-credential")){
+        systemErrorMessage = "Dados inválidos"
+      }else{
+        systemErrorMessage = "Ocorreu um erro"
+      }
+      setError(systemErrorMessage)
+      setLoading(false)
+    }
+  }
+
   useEffect(() => {
     return () => {
       setCancelled(true);
@@ -90,7 +108,8 @@ export const useAuthentication = () => {
     error,
     loading,
     success,
-    logout
+    logout,
+    login
    
   };
 };

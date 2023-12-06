@@ -8,10 +8,11 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const {
-    createUser,
+    login,
     error: authError,
     loading,
     success,
+    
   } = useAuthentication();
 
   const handleSubmit = async (e) => {
@@ -21,7 +22,7 @@ const Login = () => {
       email,
       password,
     };
-    const response = await createUser(user);
+    const response = await login(user);
   };
 
   useEffect(() => {
@@ -92,6 +93,8 @@ const Login = () => {
         )}
 
       </form>
+      {error && <p className={styles.errorLogin}>{error}</p>}
+      {success && <p className="sucess">Cadastro realizado com sucesso</p>}
     </div>
   );
 };

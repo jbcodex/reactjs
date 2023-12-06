@@ -119,7 +119,7 @@ body{
     background-color: #f8d7da;
     border: 1px solid #f5c6cb;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 3px;
   }
 
   .container .sucess{
@@ -127,7 +127,7 @@ body{
     background-color: #d9f8d7;
     border: 1px solid #c7f5c6;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 3px;
    
   }
 
