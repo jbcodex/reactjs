@@ -24,7 +24,11 @@ const Navbar = () => {
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
-        <li>
+        
+        {!user && (
+          <>
+            
+            <li>
           <NavLink
             to="/about"
             className={({ isActive }) => (isActive ? styles.active : "")}
@@ -32,9 +36,6 @@ const Navbar = () => {
             Sobre
           </NavLink>
         </li>
-        {!user && (
-          <>
-            <li style={{ color: "#fff" }}>|</li>
             <li>
               <NavLink
                 to="/register"

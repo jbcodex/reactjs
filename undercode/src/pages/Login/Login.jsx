@@ -38,7 +38,7 @@ const Login = () => {
       <p>Entre para criar postagens!</p>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Usuário: </span>
+          <span>E-mail: </span>
           <FaUser
             style={{
               position:"absolute",
@@ -54,11 +54,13 @@ const Login = () => {
             
           />
           <input
-            type="text"
+            type="email"
             name="email"
             placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
+            onInvalid="setCustomValidity('Insira um email válido')"
           />
         </label>
         <label>
@@ -83,6 +85,8 @@ const Login = () => {
             placeholder="senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
+            onInvalid="setCustomValidity('Senha obrigatória')"
           />
         </label>
         {!loading && <button className="btn">Entrar</button>}
