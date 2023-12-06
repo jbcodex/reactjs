@@ -1,11 +1,19 @@
 import { NavLink } from "react-router-dom";
-import { FaSignInAlt, FaUserPlus, FaChartBar, FaPencilAlt } from "react-icons/fa";
+import {
+  FaSignInAlt,
+  FaUserPlus,
+  FaChartBar,
+  FaPencilAlt,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import { useAuthentication } from "../hooks/userAuthentication";
 import { useAutValue } from "../context/AuthContext";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const { user } = useAutValue();
+  const {logout} = useAuthentication()
+ 
 
   return (
     <nav className={styles.navbar}>
@@ -61,34 +69,51 @@ const Navbar = () => {
         )}
         {user && (
           <>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              <FaChartBar
-                style={{
-                  color: "orange",
-                  fontSize: ".9em",
-                  marginBottom: "-2px",
-                  marginRight: "2px"
-                }}
-              /> 
-               Dashboard
-            </NavLink>
-            <NavLink
-              to="/posts/create"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              <FaPencilAlt
+            <li>
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) => (isActive ? styles.active : "")}
+              >
+                <FaChartBar
+                  style={{
+                    color: "orange",
+                    fontSize: ".9em",
+                    marginBottom: "-2px",
+                    marginRight: "2px",
+                  }}
+                />
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/posts/create"
+                className={({ isActive }) => (isActive ? styles.active : "")}
+              >
+                <FaPencilAlt
                   style={{
                     color: "orange",
                     fontSize: ".8em",
                     marginBottom: "-2px",
-                    marginRight: "3px"
+                    marginRight: "3px",
                   }}
                 />
-              Criar Post
-            </NavLink>
+                Criar Post
+              </NavLink>
+            </li>
+            <li>
+              <button style={{color:"#fff"}} onClick={logout}>
+                <FaSignOutAlt
+                  style={{
+                    color: "orange",
+                    fontSize: ".8em",
+                    marginBottom: "-2px",
+                    marginRight: "3px",
+                  }}
+                />
+                Sair
+              </button>
+            </li>
           </>
         )}
       </ul>

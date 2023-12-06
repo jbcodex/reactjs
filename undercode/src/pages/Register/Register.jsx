@@ -1,6 +1,7 @@
 import { useAuthentication } from "../../hooks/userAuthentication";
 import styles from "./Register.module.css";
 import { useState, useEffect } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const [displayname, setDisplayname] = useState("");
@@ -8,6 +9,10 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   
 
   const {
@@ -72,7 +77,7 @@ const Register = () => {
         <label>
           <span>Senha:</span>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             required
             placeholder="Senha"
@@ -82,8 +87,38 @@ const Register = () => {
         </label>
         <label>
           <span>Confirme a senha:</span>
+          <div onClick={togglePasswordVisibility}>
+          {showPassword ? 
+            <FaEye
+            style={{
+              position:"absolute",
+              top:"400",
+              right:"35%",
+              color: "#000",
+              fontSize: "1em",
+              marginBottom: "-2px",
+              marginRight: "5px",
+              cursor:"pointer"
+            }}
+            
+          />
+           : 
+           <FaEyeSlash
+           style={{
+             position:"absolute",
+             top:"400",
+             right:"35%",
+             color: "#000",
+             fontSize: "1em",
+             marginBottom: "-2px",
+             marginRight: "5px",
+             cursor:"pointer"
+           }}
+           
+         />}
+          </div>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="confirmPassword"
             required
             placeholder="Confirme sua senha"

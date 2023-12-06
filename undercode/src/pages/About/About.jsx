@@ -14,7 +14,8 @@ const About = () => {
           tendências. Junte-se à nossa comunidade e descubra como podemos tornar
           o mundo digital mais seguro, uma linha de código de cada vez.
         </p>
-        <NavLink className="btn"><FaPencilAlt
+        <NavLink className="btn" to="/posts/create">
+          <FaPencilAlt
                   style={{
                     color: "#fff",
                     fontSize: ".8em",
