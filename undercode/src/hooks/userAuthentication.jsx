@@ -12,14 +12,13 @@ import {
 //Importação do useState e useEffect
 import { useState, useEffect } from "react";
 
-//Exportação do hook de configurações 
+//Exportação do hook de configurações
 export const userAuthentication = () => {
-
   //declaração das constantes
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [success, setSuccess] = useState(null);
- 
+
   //cleanup
   //deal with memory leak
   const [cancelled, setCancelled] = useState(false);
@@ -30,8 +29,6 @@ export const userAuthentication = () => {
       return;
     }
   }
-
-
   //Função para criar um usuário que recebe dados
   const createUser = async (data) => {
     checkIfIsCancelled();
@@ -46,9 +43,9 @@ export const userAuthentication = () => {
       );
 
       await updateProfile(user, {
-        displayName: data.displayName
+        displayName: data.displayName,
       });
-     
+
       setLoading(false);
       setSuccess(true);
 
@@ -74,18 +71,25 @@ export const userAuthentication = () => {
       setError(systemErrorMessage);
     }
   };
-
+  //Chama signOut do firebase para deslogar
   const logout = () => {
     checkIfIsCancelled();
     signOut(auth);
   };
 
+  //Função para logar o usuário recebendo login(data)
   const login = async (data) => {
     checkIfIsCancelled();
     setLoading(true);
     setError(false);
     try {
-      await signInWithEmailAndPassword(auth, data.email, data.password);
+      const u = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      
     } catch (error) {
       let systemErrorMessage;
       if (error.message.includes("auth/invalid-credential")) {
@@ -111,6 +115,6 @@ export const userAuthentication = () => {
     loading,
     success,
     logout,
-    login
+    login,
   };
 };

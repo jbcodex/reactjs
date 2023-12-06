@@ -12,7 +12,7 @@ import { useAutValue } from "../context/AuthContext";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const { user, displayname } = useAutValue();
+  const { user } = useAutValue();
  
   const {logout} = userAuthentication()
  
@@ -105,7 +105,7 @@ const Navbar = () => {
                 Criar Post
               </NavLink>
             </li>
-                <li>{displayname}</li>
+               
             <li>
               <button style={{color:"#fff"}} onClick={logout}>
                 <FaSignOutAlt

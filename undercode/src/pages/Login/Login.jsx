@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { userAuthentication } from "../../hooks/userAuthentication";
 import { FaLock, FaUser } from "react-icons/fa";
+import { MdAlternateEmail } from "react-icons/md";
 import styles from "./Login.module.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [colorMail, setColorMail] = useState(false)
+  const [colorPass, setColorPass] = useState(false)
 
   const {
     login,
@@ -36,20 +39,21 @@ const Login = () => {
     <div className={styles.login}>
       <h1>Login</h1>
       <p>Entre para criar postagens!</p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off">
         <label>
           <span>E-mail: </span>
-          <FaUser
+          <MdAlternateEmail
             style={{
               position:"absolute",
               top:"265px",
               right:"35%",
-              color: "#aaa",
+              color: colorMail ? "#aaa" : "#eee",
               fontSize: "1em",
               marginBottom: "-2px",
               marginRight: "5px",
               cursor:"pointer",
-              backgroundColor:"transparent"
+              backgroundColor:"transparent",
+              transition:".2s"
             }}
             
           />
@@ -59,6 +63,7 @@ const Login = () => {
             placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onFocus={()=>(setColorMail(true), password == "" ? setColorPass(false) : null)}
             required
             
           />
@@ -70,12 +75,13 @@ const Login = () => {
               position:"absolute",
               top:"345px",
               right:"35%",
-              color: "#aaa",
+              color: colorPass ? "#aaa" : "#eee",
               fontSize: "1em",
               marginBottom: "-2px",
               marginRight: "5px",
               cursor:"pointer",
-              backgroundColor:"transparent"
+              backgroundColor:"transparent",
+              transition:".2s"
             }}
             
           />
@@ -85,6 +91,7 @@ const Login = () => {
             placeholder="senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            onFocus={()=>(setColorPass(true), email == "" ? setColorMail(false) : null)}
             required
             
           />
