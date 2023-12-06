@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAuthentication } from "../../hooks/userAuthentication";
+import { userAuthentication } from "../../hooks/userAuthentication";
 import { FaLock, FaUser } from "react-icons/fa";
 import styles from "./Login.module.css";
 const Login = () => {
@@ -13,7 +13,7 @@ const Login = () => {
     loading,
     success,
     
-  } = useAuthentication();
+  } = userAuthentication();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +60,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            onInvalid="setCustomValidity('Insira um email válido')"
+            
           />
         </label>
         <label>
@@ -86,7 +86,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            onInvalid="setCustomValidity('Senha obrigatória')"
+            
           />
         </label>
         {!loading && <button className="btn">Entrar</button>}

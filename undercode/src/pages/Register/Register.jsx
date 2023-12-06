@@ -1,4 +1,4 @@
-import { useAuthentication } from "../../hooks/userAuthentication";
+import { userAuthentication } from "../../hooks/userAuthentication";
 import styles from "./Register.module.css";
 import { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -20,7 +20,7 @@ const Register = () => {
     error: authError,
     loading,
     success,
-  } = useAuthentication();
+  } = userAuthentication();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

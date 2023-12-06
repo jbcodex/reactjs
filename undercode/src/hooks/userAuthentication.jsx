@@ -1,5 +1,7 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 import { db } from "../firebase/config";
+
+//Importação das configs do firebase
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -7,15 +9,17 @@ import {
   updateProfile,
   signOut,
 } from "firebase/auth";
-
+//Importação do useState e useEffect
 import { useState, useEffect } from "react";
-export const useAuthentication = () => {
+
+//Exportação do hook de configurações 
+export const userAuthentication = () => {
+
+  //declaração das constantes
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [success, setSuccess] = useState(null);
-
-  
-
+ 
   //cleanup
   //deal with memory leak
   const [cancelled, setCancelled] = useState(false);
@@ -27,11 +31,12 @@ export const useAuthentication = () => {
     }
   }
 
+
+  //Função para criar um usuário que recebe dados
   const createUser = async (data) => {
     checkIfIsCancelled();
     setLoading(true);
     setError(null);
-  
 
     try {
       const { user } = await createUserWithEmailAndPassword(
@@ -41,20 +46,17 @@ export const useAuthentication = () => {
       );
 
       await updateProfile(user, {
-        displayName: data.displayName,
+        displayName: data.displayName
       });
-
      
-
       setLoading(false);
       setSuccess(true);
+
       setTimeout(() => {
         setSuccess(false);
       }, 3000);
 
-     
       return user;
-
     } catch (error) {
       console.log(error.message);
       console.log(typeof error.message);
@@ -73,28 +75,28 @@ export const useAuthentication = () => {
     }
   };
 
-  const logout = ()=>{
-    checkIfIsCancelled()
-    signOut(auth)
-  }
+  const logout = () => {
+    checkIfIsCancelled();
+    signOut(auth);
+  };
 
-  const login = async(data)=>{
-    checkIfIsCancelled()
-    setLoading(true)
-    setError(false)
+  const login = async (data) => {
+    checkIfIsCancelled();
+    setLoading(true);
+    setError(false);
     try {
-      await signInWithEmailAndPassword(auth, data.email, data.password)
+      await signInWithEmailAndPassword(auth, data.email, data.password);
     } catch (error) {
-      let systemErrorMessage
-      if(error.message.includes("auth/invalid-credential")){
-        systemErrorMessage = "Dados inválidos"
-      }else{
-        systemErrorMessage = "Ocorreu um erro"
+      let systemErrorMessage;
+      if (error.message.includes("auth/invalid-credential")) {
+        systemErrorMessage = "Dados inválidos";
+      } else {
+        systemErrorMessage = "Ocorreu um erro";
       }
-      setError(systemErrorMessage)
-      setLoading(false)
+      setError(systemErrorMessage);
+      setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     return () => {
@@ -110,6 +112,5 @@ export const useAuthentication = () => {
     success,
     logout,
     login
-   
   };
 };

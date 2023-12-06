@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 
 import { useState, useEffect} from "react";
-import { useAuthentication } from "./hooks/userAuthentication";
+import { userAuthentication } from "./hooks/userAuthentication";
 
 //Pages
 import Home from "./pages/Home/Home";
@@ -23,7 +23,7 @@ import CreatePost from "./pages/CreatePost/CreatePost";
 
 function App() {
   const [user, setUser] = useState(undefined);
-  const {auth} = useAuthentication()
+  const {auth} = userAuthentication()
   const loadingUser = user === undefined;
 
   useEffect(()=>{

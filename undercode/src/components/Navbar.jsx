@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { NavLink } from "react-router-dom";
 import {
   FaSignInAlt,
@@ -6,13 +7,15 @@ import {
   FaPencilAlt,
   FaSignOutAlt,
 } from "react-icons/fa";
-import { useAuthentication } from "../hooks/userAuthentication";
+import { userAuthentication } from "../hooks/userAuthentication";
 import { useAutValue } from "../context/AuthContext";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const { user } = useAutValue();
-  const {logout} = useAuthentication()
+  const { user, displayname } = useAutValue();
+ 
+  const {logout} = userAuthentication()
+ 
  
 
   return (
@@ -102,6 +105,7 @@ const Navbar = () => {
                 Criar Post
               </NavLink>
             </li>
+                <li>{displayname}</li>
             <li>
               <button style={{color:"#fff"}} onClick={logout}>
                 <FaSignOutAlt

@@ -1,7 +1,8 @@
+/* eslint-disable */
 import { useContext, createContext } from "react";
 const AuthContext = createContext()
 
-export function AuthContextProvider  ({children, value}){
+export const AuthContextProvider = ({children, value}) =>{
     return(
         <AuthContext.Provider value={value}>
             {children}
@@ -9,6 +10,6 @@ export function AuthContextProvider  ({children, value}){
     )
 }
 
-export function useAutValue(){
+export const useAutValue = ()=>{
     return useContext(AuthContext)
 }
