@@ -1,8 +1,11 @@
-.login h1, p{
-    text-align: center;
+.login h1{
+   text-align: center;
+   margin-top: 2em;
 }
 
 
-.btn-login{
-    margin: 0 auto;
+.login form{
+    margin-top: 2em;
 }
+
+

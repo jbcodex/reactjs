@@ -62,17 +62,19 @@ body{
   }
 
   .btn{
+    display: block;
     background-color: #1a8918;
     color: #fff;
     text-align: center;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 3px;
     width: 200px;
     font-weight: bold;
     border: none;
     padding: 10px 15px;
     font-size: 1em;
-    margin: 0 auto !important;
+    margin: 20px auto;
+    justify-content: center;
     
   }
 
@@ -91,7 +93,7 @@ body{
 
   .btn:hover{
     background-color: #0f730c;
-    transition: .4s;
+   
   }
 
   .btn.btn-outline:hover{
