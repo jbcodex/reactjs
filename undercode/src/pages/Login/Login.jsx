@@ -60,7 +60,7 @@ const Login = () => {
           <input
             type="email"
             name="email"
-            placeholder="E-mail"
+            placeholder="Insira seu e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onFocus={()=>(setColorMail(true), password == "" ? setColorPass(false) : null)}
@@ -88,7 +88,7 @@ const Login = () => {
           <input
             type="password"
             name="password"
-            placeholder="senha"
+            placeholder="Sua senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             onFocus={()=>(setColorPass(true), email == "" ? setColorMail(false) : null)}

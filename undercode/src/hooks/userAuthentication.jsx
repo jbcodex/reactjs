@@ -52,25 +52,22 @@ export const userAuthentication = () => {
       setTimeout(() => {
         setSuccess(false);
       }, 3000);
-
       return user;
+
     } catch (error) {
-      // console.log(error.message);
-      // console.log(typeof error.message);
       let systemErrorMessage;
       if (error.message.includes("Password")) {
-        systemErrorMessage =
-          "As senhas precisam conter pelo menos 6 caracteres";
+        systemErrorMessage = "As senhas precisam conter pelo menos 6 caracteres";
       } else if (error.message.includes("email-already")) {
         systemErrorMessage = "E-mail já cadastrado";
       } else {
         systemErrorMessage = "Ocorreu um erro!";
       }
-
       setLoading(false);
       setError(systemErrorMessage);
     }
   };
+
   //Chama signOut do firebase para deslogar
   const logout = () => {
     checkIfIsCancelled();
@@ -82,25 +79,18 @@ export const userAuthentication = () => {
     checkIfIsCancelled();
     setLoading(true);
     setError(false);
-    setSuccess(true)
-    console.log(success)
-    try {
-        await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-     
 
-      
+    console.log(success);
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
     } catch (error) {
       let systemErrorMessage;
       if (error.message.includes("auth/invalid-credential")) {
         systemErrorMessage = "Dados inválidos";
       } else if (error.message.includes("auth/user-disabled")) {
         systemErrorMessage = "Conta temporariamente desativada";
-      }else{
-        systemErrorMessage = "Ocorreu um erro, tente mais tarde!"
+      } else {
+        systemErrorMessage = "Ocorreu um erro, tente mais tarde!";
       }
       setError(systemErrorMessage);
       setLoading(false);
@@ -120,6 +110,6 @@ export const userAuthentication = () => {
     loading,
     success,
     logout,
-    login,
+    login
   };
 };
