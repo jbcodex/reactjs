@@ -55,8 +55,8 @@ export const userAuthentication = () => {
 
       return user;
     } catch (error) {
-      console.log(error.message);
-      console.log(typeof error.message);
+      // console.log(error.message);
+      // console.log(typeof error.message);
       let systemErrorMessage;
       if (error.message.includes("Password")) {
         systemErrorMessage =
@@ -82,20 +82,25 @@ export const userAuthentication = () => {
     checkIfIsCancelled();
     setLoading(true);
     setError(false);
+    setSuccess(true)
+    console.log(success)
     try {
-      const u = await signInWithEmailAndPassword(
+        await signInWithEmailAndPassword(
         auth,
         data.email,
         data.password
       );
+     
 
       
     } catch (error) {
       let systemErrorMessage;
       if (error.message.includes("auth/invalid-credential")) {
         systemErrorMessage = "Dados inválidos";
-      } else {
-        systemErrorMessage = "Ocorreu um erro";
+      } else if (error.message.includes("auth/user-disabled")) {
+        systemErrorMessage = "Conta temporariamente desativada";
+      }else{
+        systemErrorMessage = "Ocorreu um erro, tente mais tarde!"
       }
       setError(systemErrorMessage);
       setLoading(false);

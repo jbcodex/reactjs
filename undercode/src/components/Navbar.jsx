@@ -12,10 +12,9 @@ import { useAutValue } from "../context/AuthContext";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const { user } = useAutValue();
- 
+  const {user} = useAutValue();
   const {logout} = userAuthentication()
- 
+
  
 
   return (
@@ -89,6 +88,7 @@ const Navbar = () => {
                 Dashboard
               </NavLink>
             </li>
+           
             <li>
               <NavLink
                 to="/posts/create"
