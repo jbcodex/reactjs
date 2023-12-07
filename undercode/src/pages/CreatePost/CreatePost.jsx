@@ -1,3 +1,4 @@
+/* eslint-disable */
 import styles from "./CreatePost.module.css";
 import { useState, useNavigate } from "react";
 import { useAutValue } from "../../context/AuthContext";
@@ -20,15 +21,29 @@ const CreatePost = () => {
     setFormError("")
 
     //validade url image
+    try {
+      new URL(image)
+    } catch (error) {
+      setFormError("A Imagem deve ser inserida através de uma URL de imagem válida.")
+    }
     // create tags array
+    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+    
     //Check all values
+
+    if(!title || !body || !image || !tags){
+      setFormError("Preencha os camos corretamente")
+    }
+    if(formError){
+      return
+    }
 
    
     insertDocument({
       title,
       image,
       body,
-      tags,
+      tagsArray,
       uid:user.uid,
       createdBy: user.displayName
     })
@@ -95,6 +110,7 @@ const CreatePost = () => {
         )}
 
         {response.error && <p className="error">{response.error}</p>}
+        {formError && <p className="error">{formError}</p>}
       
       </form>
    </div>
