@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const [displayname, setDisplayname] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -26,7 +26,7 @@ const Register = () => {
     e.preventDefault();
     setError("");
     const user = {
-      displayname,
+      displayName,
       email,
       password,
     };
@@ -56,11 +56,11 @@ const Register = () => {
           <span>Nome:</span>
           <input
             type="text"
-            name="displayname"
+            name="displayName"
             required
             placeholder="Nome de usuário"
-            value={displayname}
-            onChange={(e) => setDisplayname(e.target.value)}
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
           />
         </label>
         <label>

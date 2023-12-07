@@ -1,6 +1,7 @@
 /* eslint-disable */
 import styles from "./CreatePost.module.css";
-import { useState, useNavigate } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAutValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 
@@ -13,6 +14,7 @@ const CreatePost = () => {
 
   const { user } = useAutValue()
   const {insertDocument, response} = useInsertDocument("posts")
+  const navigate = useNavigate()
  
   
 
@@ -48,8 +50,10 @@ const CreatePost = () => {
       createdBy: user.displayName
     })
 
+ 
+
     //Redirect
-  
+    navigate("/")  
    
 
   };
