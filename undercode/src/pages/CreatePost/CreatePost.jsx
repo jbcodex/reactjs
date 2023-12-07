@@ -1,6 +1,7 @@
 import styles from "./CreatePost.module.css";
-import { useState, useEffect, useNavigate } from "react";
+import { useState, useNavigate } from "react";
 import { useAutValue } from "../../context/AuthContext";
+import { useInsertDocument } from "../../hooks/useInsertDocument";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -9,8 +10,33 @@ const CreatePost = () => {
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
 
+  const { user } = useAutValue()
+  const {insertDocument, response} = useInsertDocument("posts")
+ 
+  
+
   const handleSubmit = (e) => {
-    e.preventeDefault();
+    e.preventDefault();
+    setFormError("")
+
+    //validade url image
+    // create tags array
+    //Check all values
+
+   
+    insertDocument({
+      title,
+      image,
+      body,
+      tags,
+      uid:user.uid,
+      createdBy: user.displayName
+    })
+
+    //Redirect
+  
+   
+
   };
   return (
    <div className={styles.createPost}>
@@ -60,16 +86,16 @@ const CreatePost = () => {
             placeholder="Marque algumas tags separadas por vírgulas"
           />
         </label>
-        <button className="btn">Postar</button>
-        {/* {!loading && <button className="btn">Postar</button>}
-        {loading && (
+
+        {!response.loading && <button className="btn">Postar</button>}
+        {response.loading && (
           <button className="btn" disabled>
             Aguarde...
           </button>
         )}
 
-        {error && <p className="error">{error}</p>}
-        {success && <p className="sucess">Cadastro realizado com sucesso</p>} */}
+        {response.error && <p className="error">{response.error}</p>}
+      
       </form>
    </div>
   );
