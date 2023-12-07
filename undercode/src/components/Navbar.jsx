@@ -93,7 +93,7 @@ const Navbar = () => {
                 Dashboard
               </NavLink>
             </li>
-            {user && <li style={{color:"#fff"}}> | Olá, {firstName}. </li>}
+            {user && <li style={{color:"#fff"}}> | Olá, {firstName}! </li>}
             <li>
               <NavLink
                 to="/posts/create"
