@@ -15,6 +15,11 @@ const Navbar = () => {
   const {user} = useAutValue();
   const {logout} = userAuthentication()
 
+  const checkName = user.displayName.split(" ")
+  const firstName = checkName[0]
+ 
+  
+
  
 
   return (
@@ -88,7 +93,7 @@ const Navbar = () => {
                 Dashboard
               </NavLink>
             </li>
-           
+            {user && <li style={{color:"#fff"}}> | Olá, {firstName}. </li>}
             <li>
               <NavLink
                 to="/posts/create"
@@ -105,7 +110,6 @@ const Navbar = () => {
                 Criar Post
               </NavLink>
             </li>
-               
             <li>
               <button style={{color:"#fff"}} onClick={logout}>
                 <FaSignOutAlt
