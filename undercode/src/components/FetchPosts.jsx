@@ -10,7 +10,7 @@ const FetchPosts = ({post}) => {
             <h2>{post.title}</h2>
             <p>Por:  {post.createdBy} em: </p>
             <div className={styles.tags}>
-                {post.tagsArray.map((tag, i)=>(
+                {post.tagsArray.map((tag, i)=>( 
                     <p key={i}><span><FaHashtag style={{marginBottom:"-1px",fontSize:"12px" ,color:"#069"}} /></span>{tag}</p>
                 ))}
             </div>
