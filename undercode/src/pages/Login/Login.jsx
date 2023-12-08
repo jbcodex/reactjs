@@ -65,6 +65,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
             onFocus={()=>(setColorMail(true), password == "" ? setColorPass(false) : null)}
             required
+            autoComplete="off"
             
           />
         </label>
@@ -93,6 +94,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             onFocus={()=>(setColorPass(true), email == "" ? setColorMail(false) : null)}
             required
+            autoComplete="off"
             
           />
         </label>

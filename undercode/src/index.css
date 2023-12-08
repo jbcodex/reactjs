@@ -78,10 +78,7 @@ body{
     
   }
 
-  .btn.btn-dark{
-    background-color: #000;
-    border-radius: 0;
-  }
+  
 
   .btn.btn-outline{
     background-color: transparent;

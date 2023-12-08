@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import {
   FaSignInAlt,
   FaUserPlus,
-  FaChartBar,
   FaPencilAlt,
   FaSignOutAlt,
 } from "react-icons/fa";
+import { FaRegFaceSmile } from "react-icons/fa6";
 import { userAuthentication } from "../hooks/userAuthentication";
 import { useAutValue } from "../context/AuthContext";
 import styles from "./Navbar.module.css";
@@ -14,13 +14,6 @@ import styles from "./Navbar.module.css";
 const Navbar = () => {
   const {user} = useAutValue();
   const {logout} = userAuthentication()
-
-  const checkName = user.displayName.split(" ")
-  const firstName = checkName[0]
- 
-  
-
- 
 
   return (
     <nav className={styles.navbar}>
@@ -82,18 +75,11 @@ const Navbar = () => {
                 to="/dashboard"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
-                <FaChartBar
-                  style={{
-                    color: "orange",
-                    fontSize: ".9em",
-                    marginBottom: "-2px",
-                    marginRight: "2px",
-                  }}
-                />
+              
                 Dashboard
               </NavLink>
             </li>
-            {user && <li style={{color:"#fff"}}> | Olá, {firstName}! </li>}
+            {user && <li style={{color:"#fff", fontSize:"12px", marginTop:"4px"}}> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FaRegFaceSmile style={{color:"orange", marginBottom:"-1.5px", marginRight:"4px"}} /><b>Usuário: </b> {user.displayName.split(' ')[0]}&nbsp;&nbsp;&nbsp;&nbsp; </li>}
             <li>
               <NavLink
                 to="/posts/create"

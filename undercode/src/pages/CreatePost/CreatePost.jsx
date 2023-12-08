@@ -1,6 +1,6 @@
 /* eslint-disable */
 import styles from "./CreatePost.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAutValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
@@ -11,6 +11,7 @@ const CreatePost = () => {
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
+  const [success, setSuccess] = useState(null)
 
   const { user } = useAutValue()
   const {insertDocument, response} = useInsertDocument("posts")
@@ -50,10 +51,17 @@ const CreatePost = () => {
       createdBy: user.displayName
     })
 
- 
+    setSuccess(true)
+
+    setTimeout(()=>{
+      navigate("/") 
+    }, 1000)
+
+   
 
     //Redirect
-    navigate("/")  
+     
+   
    
 
   };
@@ -115,6 +123,7 @@ const CreatePost = () => {
 
         {response.error && <p className="error">{response.error}</p>}
         {formError && <p className="error">{formError}</p>}
+        {success && <p className="sucess">Sucesso!</p> }
       
       </form>
    </div>
