@@ -13,10 +13,11 @@ const CreatePost = () => {
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
   const [success, setSuccess] = useState(null)
+  const [sugg, setSugg] = useState("")
  
 
   const { user } = useAutValue()
-  const {insertDocument, response} = useInsertDocument("posts")
+  const {insertDocument, response } = useInsertDocument("posts")
   const navigate = useNavigate()
   
   const suggestIndex = Math.floor(Math.random() * suggestArray.length);
@@ -64,7 +65,7 @@ const CreatePost = () => {
 
    
 
-    //Redirect
+
      
    
    
@@ -73,7 +74,7 @@ const CreatePost = () => {
   return (
    <div className={styles.createPost}>
      <h2>Criar Post</h2>
-      <p>{suggest}</p>
+      <p>{useEffect(()=>{setSugg(suggest)}, [])}{sugg}</p>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Título do Post</span>
