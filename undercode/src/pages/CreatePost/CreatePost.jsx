@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAutValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { suggestArray } from "../../components/suggestArray";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -12,12 +13,16 @@ const CreatePost = () => {
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
   const [success, setSuccess] = useState(null)
+ 
 
   const { user } = useAutValue()
   const {insertDocument, response} = useInsertDocument("posts")
   const navigate = useNavigate()
- 
   
+  const suggestIndex = Math.floor(Math.random() * suggestArray.length);
+  const suggest = suggestArray[suggestIndex];
+  
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,7 +73,7 @@ const CreatePost = () => {
   return (
    <div className={styles.createPost}>
      <h2>Criar Post</h2>
-      <p>O que quer compartilhar hoje?</p>
+      <p>{suggest}</p>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Título do Post</span>

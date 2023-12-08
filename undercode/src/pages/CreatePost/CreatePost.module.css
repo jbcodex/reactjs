@@ -7,3 +7,8 @@
     margin-top: 2em;
 }
 
+.createPost p {
+    width: 30%;
+    margin: 1.2em auto 0 auto;
+}
+
