@@ -11,6 +11,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+import Search from "./pages/Search/Search.jsx"
 
 //Components
 import Navbar from "./components/Navbar";
@@ -46,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/register" element={!user ? <Register /> : <Home />} />
             <Route path="/login" element={ !user ? <Login /> : <Home />} />
             <Route path="/dashboard" element={!user ? <Login /> : <Dashboard />} />
