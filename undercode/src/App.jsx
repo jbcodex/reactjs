@@ -21,6 +21,7 @@ import Footer from "./components/Footer";
 //Styles
 import "./App.css";
 import { AuthContextProvider } from "./context/AuthContext";
+import Post from "./pages/Post/Post.jsx";
 
 
 
@@ -48,6 +49,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/posts/:id" element={<Post />} />
             <Route path="/register" element={!user ? <Register /> : <Home />} />
             <Route path="/login" element={ !user ? <Login /> : <Home />} />
             <Route path="/dashboard" element={!user ? <Login /> : <Dashboard />} />

@@ -11,7 +11,7 @@ const FetchPosts = ({post}) => {
             <img src={post.image} alt={post.title}/>
             <h2>{post.title}</h2>
             <p>Por:  {post.createdBy}</p>
-            <NavLink className={styles.linkPost} to={`/post/${post.id}`}><IoIosLink />Ler Postagem</NavLink>
+            <NavLink className={styles.linkPost} to={`/posts/${post.id}`}><IoIosLink />Ler Postagem</NavLink>
             <div className={styles.tags}>
                 {post.tagsArray.map((tag, i)=>( 
                     <p key={i}><span><FaHashtag style={{marginBottom:"-1px",fontSize:"12px" ,color:"#069"}} /></span>{tag}</p>
