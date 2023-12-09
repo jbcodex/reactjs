@@ -3,8 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
-
 }
 
 .home h1{
@@ -16,9 +14,6 @@
     justify-content: center;
     width: 60%;
     margin-top: 1.5em;
-  
-    
-   
 }
 
 .search_form input{
@@ -26,8 +21,6 @@
     border: 1px solid #ddd;
     width: 70%;
     border-radius: 3px;
-    
-   
 }
 
 

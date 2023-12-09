@@ -8,7 +8,6 @@ const FetchPosts = ({post}) => {
   return (
     <>
         <div className={styles.posts}>
-           
             <img src={post.image} alt={post.title}/>
             <h2>{post.title}</h2>
             <p>Por:  {post.createdBy}</p>
@@ -17,12 +16,7 @@ const FetchPosts = ({post}) => {
                 {post.tagsArray.map((tag, i)=>( 
                     <p key={i}><span><FaHashtag style={{marginBottom:"-1px",fontSize:"12px" ,color:"#069"}} /></span>{tag}</p>
                 ))}
-              
             </div>
-            
-           
-           
-            
         </div>
     </>
   )
