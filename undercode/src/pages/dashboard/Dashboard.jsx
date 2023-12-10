@@ -44,7 +44,6 @@ const Dashboard = () => {
                   <Link to={`/posts/edit/${post.id}`} style={{fontSize:"17px"}}>
                     <FaRegEdit />
                   </Link>
-              
                   <Link onClick={() => deleteDocument(post.id)} style={{color:"red"}}>
                     <MdOutlineDeleteOutline />
                   </Link>
