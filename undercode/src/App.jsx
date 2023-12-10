@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
+import { AuthContextProvider } from "./context/AuthContext";
 
 import { useState, useEffect} from "react";
 import { userAuthentication } from "./hooks/userAuthentication";
@@ -12,6 +13,8 @@ import CreatePost from "./pages/CreatePost/CreatePost";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Search from "./pages/Search/Search.jsx"
+import Post from "./pages/Post/Post.jsx";
+import Edit from "./pages/Edit/Edit.jsx";
 
 //Components
 import Navbar from "./components/Navbar";
@@ -20,8 +23,8 @@ import Footer from "./components/Footer";
 
 //Styles
 import "./App.css";
-import { AuthContextProvider } from "./context/AuthContext";
-import Post from "./pages/Post/Post.jsx";
+
+
 
 
 
@@ -50,6 +53,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/search" element={<Search />} />
             <Route path="/posts/:id" element={<Post />} />
+            <Route path="/posts/edit/:id" element={<Edit />} />
             <Route path="/register" element={!user ? <Register /> : <Home />} />
             <Route path="/login" element={ !user ? <Login /> : <Home />} />
             <Route path="/dashboard" element={!user ? <Login /> : <Dashboard />} />
