@@ -3,7 +3,7 @@ import styles from "./EditPost.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAutValue } from "../../context/AuthContext";
-import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 import { suggestArray } from "../../components/suggestArray";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 
@@ -32,7 +32,7 @@ const EditPost = () => {
  
 
   const { user } = useAutValue()
-  const {insertDocument, response } = useInsertDocument("posts")
+  const {updateDocument, response } = useUpdateDocument("posts")
   const navigate = useNavigate()
   
   const suggestIndex = Math.floor(Math.random() * suggestArray.length);
@@ -62,26 +62,28 @@ const EditPost = () => {
       return
     }
 
-   
-    insertDocument({
-      title,
-      image,
-      body,
-      tagsArray,
-      uid:user.uid,
-      createdBy: user.displayName
-    })
+   const data = {
+    title,
+    image,
+    body,
+    tagsArray,
+    uid:user.uid,
+    createdBy: user.displayName
+   }
+   updateDocument(id, data)
 
     setSuccess(true)
 
     setTimeout(()=>{
-      navigate("/") 
+      navigate("/dashboard") 
     }, 1000)
   };
   return (
    <div className={styles.editPost}>
-     <h2>Editar Post</h2>
-      <p>{useEffect(()=>{setSugg(suggest)}, [])}{sugg}</p>
+     {post && (
+      <>
+      <h2>Editar Post {title}</h2>
+      <p>Edite de acordo com as necessidades</p>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Título do Post</span>
@@ -105,6 +107,10 @@ const EditPost = () => {
             placeholder="Endereço Imagem que represente melhor o Post"
           />
         </label>
+        <label>
+          <img src={post.image} alt="" />
+        </label>
+        <p style={{marginBottom:"40px"}}><b>Imagem atual do Post</b></p>
         <label>
           <span>Descrição</span>
           <textarea
@@ -139,6 +145,8 @@ const EditPost = () => {
         {success && <p className="sucess">Sucesso!</p> }
       
       </form>
+      </>
+     )}
    </div>
   );
 };

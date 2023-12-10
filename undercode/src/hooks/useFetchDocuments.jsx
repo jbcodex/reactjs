@@ -28,7 +28,8 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
         //Search
         //Dashoard
         if(search){
-          q = await query(collectionRef, orderBy("createdAt", "desc"));
+          q = await query(collectionRef, where("tagsArray", "array-contains", search),
+          orderBy("createdAt", "desc"));
         }else if (uid){
           q = await query(collectionRef, where("uid", "==" ,uid));
         }else {
@@ -38,9 +39,12 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
           setDocuments(
             QuerySnapshot.docs.map((doc) => ({
               id: doc.id,
+              
               ...doc.data(),
             }))
+            
           );
+       
         });
 
         setLoading(false);
