@@ -1,0 +1,15 @@
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.register h1{
+    margin-top:50px
+}
+
+.form{
+    width: 30%;
+  
+}

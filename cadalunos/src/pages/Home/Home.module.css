@@ -1,0 +1,11 @@
+.homeContainer{
+    display: flex;
+   
+    justify-content: space-between;
+}
+
+.homeDashboard{
+    width: 100%;
+   
+}
+
