@@ -11,8 +11,17 @@ import { useState, useEffect } from "react";
 export const useGetStudents = (docCollection, id) => {
   const [students, setStudents] = useState([]);
   const [error, setError] = useState("");
-  const [studentsNumber, setStudentsNumber] = useState(0);
+  const [cancelled, setCancelled] = useState(false)
+
+  const CheckCancel = ()=>{
+    if(cancelled){
+        return
+    }
+  }
+
+
   useEffect(() => {
+    CheckCancel()
     const loadStudents = async () => {
       try {
         let q;
@@ -24,7 +33,7 @@ export const useGetStudents = (docCollection, id) => {
             ...doc.data(),
           }));
           setStudents(studentsData);
-          setStudentsNumber(studentsData.length);
+        
         });
       } catch (error) {
         setError(error.message);
@@ -37,7 +46,7 @@ export const useGetStudents = (docCollection, id) => {
   return {
     students,
     error,
-    studentsNumber,
+   
   };
 };
 

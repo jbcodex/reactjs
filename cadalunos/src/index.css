@@ -15,7 +15,7 @@
   
 }
 
-.navbar p{
+.navbar span{
   
   display: flex;
   color:#fff;
@@ -30,6 +30,8 @@
 .navbar ul{
   display: flex;
   list-style: none;
+  align-items: center;
+  justify-content: center;
   
 }
 
@@ -67,7 +69,7 @@ input{
 
 span{
   display: block;
-  font-weight: bold;
+
 }
 
 .btn{

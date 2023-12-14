@@ -1,9 +1,26 @@
+.contentStudents{
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
+}
 .students{
     width: 60%;
     border:1px solid #ccc;
     height: 50vh;
+    margin: 10px 0 10px 10px;
+    padding: 5px;
+}
+
+.perfilStudent{
+    width: 40%;
+    border:1px solid #ccc;
+    height: 50vh;
     margin: 10px;
     padding: 5px;
+}
+.perfilStudent p, h3{
+    margin:5px
 }
 
 .headerStudens{
@@ -42,5 +59,10 @@
 
 .students ul a:hover{
   color: rgb(0, 0, 0);
+ }
+
+ .perfil{
+    display: flex;
+    flex-direction: column;
  }
 

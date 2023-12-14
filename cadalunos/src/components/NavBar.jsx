@@ -10,11 +10,10 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       
-      <p><HiMenu style={{fontSize:"26px", color:"#fff"}} /> <b>Cadastro de Alunos</b>&nbsp;{user && "| Olá "+user.displayName.split(" ")[0]} </p>
+        <span><HiMenu style={{fontSize:"26px", color:"#fff"}} /> <h3><b style={{color:"yellow"}}>Escola Técnica Felícia Rangel</b></h3><p>&nbsp;{user && " Olá "+user.displayName.split(" ")[0]}</p> </span>
        <ul>
           {user && <li><Link to="/">Início</Link></li>}
-         {user &&  <li><Link to="/register">Cadastro de usuários</Link></li>}
-         
+          {user &&  <li><Link to="/register">Cadastro de usuários</Link></li>}
           {user && <li><Link onClick={logout}>Sair</Link></li>}
        </ul>
     </nav>

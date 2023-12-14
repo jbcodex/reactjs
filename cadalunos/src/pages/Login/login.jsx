@@ -20,7 +20,7 @@ const login = () => {
     <>
         <div>
             <div className={styles.login}>
-                <h1>Login</h1>
+                <h3>Por favor, entre com seus dados</h3>
             <form onSubmit={handleSubmit}>
                <label>
                 <span>Email:</span>
