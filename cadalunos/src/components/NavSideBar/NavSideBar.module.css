@@ -1,7 +1,7 @@
 .homeMenu{
     display: flex;
     justify-content: center;
-    width: 10%;
+    width: 13%;
     height: 100vh;
     background-color: rgb(77, 145, 180);
     box-sizing: border-box; 
@@ -24,7 +24,7 @@
     text-decoration: none;
     color: #fff;
     margin-left: 5px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .homeDashboard{

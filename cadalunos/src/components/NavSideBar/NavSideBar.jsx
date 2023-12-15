@@ -8,9 +8,9 @@ const NavSideBar = () => {
   return (
     <div className={styles.homeMenu}>
         <ul>
-          <li><IoMdAddCircle style={{color:"#fff", fontSize:"12px"}} /><Link to="/student-register">Novo Aluno</Link></li>
-          <li><FaUser  style={{color:"#fff", fontSize:"12px"}}/><Link to="/">Alunos</Link></li>
-          <li><MdInsertChartOutlined  style={{color:"#fff", fontSize:"12px"}}/><Link>Turmas</Link></li>
+          <li><IoMdAddCircle style={{color:"#fff", fontSize:"16px"}} /><Link to="/student-register">Novo Aluno</Link></li>
+          <li><FaUser  style={{color:"#fff", fontSize:"16px"}}/><Link to="/">Alunos</Link></li>
+          <li><MdInsertChartOutlined  style={{color:"#fff", fontSize:"16px"}}/><Link>Turmas</Link></li>
         </ul>
       </div>
   )
