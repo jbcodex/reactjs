@@ -46,10 +46,13 @@ const Students = () => {
       <div className={styles.headerStudens}>
         <span>Total de alunos: {students.length}</span>
       </div>
+      <div className={styles.legend}>
+        <span>Aluno</span><span>Turma</span>
+      </div>
       
       <ul>
       {students && students.map((stud) =>(
-          <Link onClick={()=>setIdStudent(stud.id)} key={stud.id}><li><p><FaUser style={{color:"#iii"}}/>&nbsp;{stud.studentName}</p><p>Turma: {stud.studentGroup}</p></li></Link>
+          <Link onClick={()=>setIdStudent(stud.id)} key={stud.id}><li><p><FaUser style={{color:"#iii"}}/>&nbsp;{stud.studentName}</p><p>{stud.studentGroup}</p></li></Link>
         ))}
       </ul>
     </div>
