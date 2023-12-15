@@ -59,18 +59,17 @@ form{
   width:100%;
   display: block;
   margin: 0 auto;
-
   padding: 10px;
   margin-top: 20px;
   box-sizing: border-box;
+}
+form span{
+  font-weight: bold;
 }
 
 .search{
   width: 350px;
   margin: 0;
-
-  
-
 }
 
 .searchForm{
@@ -101,7 +100,7 @@ form{
 
 label{
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 input{
